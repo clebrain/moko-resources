@@ -9,7 +9,8 @@ import platform.UIKit.UIImage
 
 actual class ImageResource(
     val assetImageName: String,
-    val bundle: NSBundle = NSBundle.mainBundle
+    val bundle: NSBundle = NSBundle.mainBundle,
+    val originalExtension: String? = null,
 ) {
     fun toUIImage(): UIImage? {
         return UIImage.imageNamed(

@@ -2,6 +2,8 @@
  * Copyright 2021 IceRock MAG Inc. Use of this source code is governed by the Apache 2.0 license.
  */
 
+import org.jetbrains.compose.ExperimentalComposeLibrary
+
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.multiplatform")
@@ -53,6 +55,13 @@ kotlin {
             dependencies {
                 api(compose.desktop.common)
                 implementation(compose.desktop.currentOs)
+            }
+        }
+
+        @OptIn(ExperimentalComposeLibrary::class)
+        named("iosMain") {
+            dependencies {
+                implementation(compose.components.resources)
             }
         }
     }

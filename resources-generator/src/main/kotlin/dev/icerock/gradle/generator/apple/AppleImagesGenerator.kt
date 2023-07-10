@@ -28,8 +28,9 @@ class AppleImagesGenerator(
 
     override fun getPropertyInitializer(fileName: String): CodeBlock? {
         return CodeBlock.of(
-            "ImageResource(assetImageName = %S, bundle = ${AppleMRGenerator.BUNDLE_PROPERTY_NAME})",
-            fileName.substringBefore(".")
+            "ImageResource(assetImageName = %S, bundle = ${AppleMRGenerator.BUNDLE_PROPERTY_NAME}, originalExtension = %S)",
+            fileName.substringBefore("."),
+            fileName.substringAfter("."),
         )
     }
 
