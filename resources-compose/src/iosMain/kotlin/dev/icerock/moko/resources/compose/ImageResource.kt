@@ -22,7 +22,7 @@ import platform.UIKit.UIScreen
 @Composable
 actual fun painterResource(imageResource: ImageResource): Painter {
     @OptIn(ExperimentalResourceApi::class)
-    if (imageResource.originalExtension != null) {
+    if (imageResource.originalExtension != null && imageResource.originalExtension != "svg") {
         val currentScreenScale = UIScreen.mainScreen.scale.toInt()
         val filepath = remember(imageResource, currentScreenScale) {
             val originalExtension = imageResource.originalExtension
